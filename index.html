@@ -19,7 +19,7 @@
       <div class="container">
         <div class="logo">
           <i class="fa-solid fa-music"></i>
-          <h1>ArtistAutrian</h1>
+          <h1 class="head">ArtistAutrian</h1>
         </div>
         <nav>
           <!-- <button>
@@ -86,6 +86,7 @@
           </div>
         </section>
 
+        
         <!-- Track Section -->
         <section id="track-section" class="track-section"> </section>
           
@@ -94,6 +95,18 @@
       </div>
       
     </main>
+
+    <div id="model" class="model">
+      <div class="model-header">
+        <h2 id="model-name" class="head">Tên bài hát</h2>
+        <i onclick="handleClose()" class="fa-solid fa-close"></i>
+      </div>
+      <iframe id="iframe" title="Spotify Embed: Recommendation Playlist "
+            src="https://open.spotify.com/embed/track/6snyNT6w27QFkdyTO3vOEM?utm_source=generator&theme=0" width="100%"
+            height="100%" frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+        </iframe>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.9.0/axios.min.js" 
             integrity="sha512-FPlUpimug7gt7Hn7swE8N2pHw/+oQMq/+R/hH/2hZ43VOQ+Kjh25rQzuLyPz7aUWKlRpI7wXbY6+U3oFPGjPOA==" 

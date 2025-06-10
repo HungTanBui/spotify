@@ -1,216 +1,250 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
-    min-height: 100vh;
-    color: white;
+body {
+  background: linear-gradient(
+    135deg,
+    #0c0c0c 0%,
+    #1a1a2e 25%,
+    #16213e 50%,
+    #0f3460 75%,
+    #533483 100%
+  );
+  min-height: 100vh;
+  color: white;
 }
-
 
 /* ----------------------------------------------- HEADER ----------------------------------------------- */
-header{
-    background: rgba(0, 0, 0, 0.2);
-    padding: 20px 0;
-    
+header {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px 0;
 }
 
-
-.container{
-    max-width: 1050px;
-    margin: 0 auto;
-    padding: 0 20px;
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-header .container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-header .container .logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+header .container .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 header .container .logo i {
-    font-size: 30px;
-    color: #7877c6;
+  font-size: 30px;
+  color: #7877c6;
 }
 
-header .container h1{
-    background: linear-gradient(45deg, #7877c6, #78dbff, #ff77c6, #c677ff);
-    background-clip: text;
-    color: transparent;
-    background-size: 200% 200%;
-    animation: gradients 3s ease infinite;
-    text-shadow: 0 0 30px rgba(120, 119, 198, 0.5);
+header .container .head {
+  background: linear-gradient(45deg, #7877c6, #78dbff, #ff77c6, #c677ff);
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: gradients 3s ease infinite;
+  text-shadow: 0 0 30px rgba(120, 119, 198, 0.5);
 }
 
-@keyframes gradients{
-    0%,100%{
-        background-position: 0% 50%;
-    }
+@keyframes gradients {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
 
-    50%{
-        background-position: 100% 50%;
-    }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* ----------------------------------------------- MAIN ----------------------------------------------- */
-main{
-    margin-top: 50px;
+main {
+  margin-top: 50px;
 }
 
-main .search-container{
-    display: flex;
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    position: relative;
+main .search-container {
+  display: flex;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
 }
 
-
-.search-container i{
-    position: absolute;
-    top: 50%;
-    left: 25px;
-    transform: translate(-50%, -50%);
-
+.search-container i {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  transform: translate(-50%, -50%);
 }
 
-.search-container input{
-    flex: 1;
-    padding: 18px 25px;
-    outline: none;
-    border: 2px solid grey;
-    border-radius: 30px;
-    background-color: rgba(255,255,255,0.2);
-    color: white;
-    font-size: 15px;
-    padding-left: 45px;
+.search-container input {
+  flex: 1;
+  padding: 18px 25px;
+  outline: none;
+  border: 2px solid grey;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 15px;
+  padding-left: 45px;
 }
 
 .search-container input::placeholder {
-    color: white;
+  color: white;
 }
 
-.search-container:focus-within{
-    transform: translateY(-5px);
-    transition: all 0.3s;
+.search-container:focus-within {
+  transform: translateY(-5px);
+  transition: all 0.3s;
 }
 
-.search-container:focus-within input{
-    border: 2px solid #7877c6;
-    border-radius: 30px;
-    box-shadow: 0 5px 30px rgba(120, 119, 198, 0.5), 0 10px 32px #7877c6b6;
+.search-container:focus-within input {
+  border: 2px solid #7877c6;
+  border-radius: 30px;
+  box-shadow: 0 5px 30px rgba(120, 119, 198, 0.5), 0 10px 32px #7877c6b6;
 }
 
 /* --------------------------- Card Section --------------------------- */
 
-main .card-section{
-    margin-top: 50px;
+main .card-section {
+  margin-top: 50px;
 }
 
-main .card-section .section-header{
+main .card-section .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main .card-section .section-header h2 {
+  font-size: 30px;
+}
+
+.track-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.track-section .track-card {
+  border: 1px solid rgb(193, 189, 189);
+  width: calc(100% / 3 - 20px);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.track-section .track-card-container {
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.track-section .track-card-container:hover {
+  box-shadow: 0 0 0px rgba(120, 119, 198, 0.5), 0 10px 32px #7877c6b6;
+  transform: translateY(-5px);
+  transition: all 0.3s;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.track-section .track-card-container img {
+  width: 100%;
+  height: 250px;
+  border-radius: 22.7643px;
+  object-fit: cover;
+}
+
+.track-section .track-card-container h3 {
+  font-weight: bold;
+  font-size: 15px;
+  margin: 10px 0;
+}
+
+.track-section .track-card-container p {
+  opacity: 0.7;
+  font-size: 15px;
+}
+
+.model {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s;
+  width: 70%;
+  height: 500px;
+  z-index: 1000;
+  padding: 40px;
+  background-color: #5dad4f;
+  border-radius: 20px;
+  margin-top: 150px;
+  display: none;
+}
+
+.model-header{
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin-bottom: 20px;
 }
 
-main .card-section .section-header h2{
+.fa-close{
     font-size: 30px;
-}
-
-.track-section{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
-.track-section .track-card{
-    border: 1px solid rgb(193, 189, 189);
-    width: calc(100%/3 - 20px);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.track-section .track-card-container{
-    max-width: 380px;
-    margin: 0 auto;
-    padding: 20px;
     cursor: pointer;
 }
 
+@media (max-width: 700px) {
+  main .track-section {
+    flex-wrap: wrap;
+  }
 
-
-
-
-.track-section .track-card-container img{
-    width: 100%;
-    height: 250px;
-    border-radius: 22.7643px;
-    object-fit: cover;
+  .track-section .track-card {
+    border: 1px solid rgb(193, 189, 189);
+    width: calc(100% / 2 - 20px);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
 }
 
-.track-section .track-card-container h3{
-    font-weight: bold;
+@media (max-width: 470px) {
+  header .container .logo {
+    font-size: 10px;
+  }
+
+  .animated-button {
     font-size: 15px;
-    margin: 10px 0;
-}
+    width: 150px;
+    height: 25px;
+  }
 
-.track-section .track-card-container p{
-    opacity: 0.7;
-    font-size: 15px;
-}
+  .animated-button .text {
+    font-size: 11px;
+  }
 
+  main .card-section .section-header h2 {
+    font-size: 20px;
+  }
 
-@media (max-width: 700px){
-    main .track-section{
-        flex-wrap: wrap;
-
-    }
-
-    .track-section .track-card{
-        border: 1px solid rgb(193, 189, 189);
-        width: calc(100%/2 - 20px);
-        border-radius: 20px;
-        background-color: rgba(255, 255, 255, 0.2);
-    }
-}
-
-@media (max-width: 470px){
-    header .container .logo{
-        font-size: 10px;
-    }
-
-    .animated-button{
-        font-size: 15px;
-        width: 150px;
-        height: 25px;
-    }
-
-    .animated-button .text{
-        font-size: 11px;
-    }
-
-    main .card-section .section-header h2{
-        font-size: 20px;
-    }
-
-    .track-section .track-card{
-        border: 1px solid rgb(193, 189, 189);
-        width: calc(100% - 20px);
-        border-radius: 20px;
-        background-color: rgba(255, 255, 255, 0.2);
-    }
+  .track-section .track-card {
+    border: 1px solid rgb(193, 189, 189);
+    width: calc(100% - 20px);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
 }

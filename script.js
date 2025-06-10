@@ -11,11 +11,15 @@ async function initiaApp() {
     }
 }
 
+function truncateText(Text,number){
+  return Text.length > number ? Text.slice(0,10) + "..."  : Text;
+}
+
 
 function displayTrack(data){
     
   data.forEach((item) => {
-    // console.log(item);
+    console.log(item.id);
     const imageUrl = item.album.images[0].url
     const name = item.name;
     const artistName = item.artists.map(item => item.name).join(", ");
@@ -33,23 +37,40 @@ function displayTrack(data){
       <div class="track-card-container">
         <img src="${imageUrl}" alt="">
           <h3>${name}</h3>
-          <p>${artistName}</p>
+          <p>${truncateText(artistName,25)}</p>
       </div>`;
+
+  // Thêm event listener để phát nhạc
+  element.addEventListener("click", () =>{
+    playTrack(item.id,name,artistName);
+  })
 
 
   // gắn thẻ div đó vào track section
   const trackSection = document.getElementById("track-section");
   trackSection.appendChild(element);
 
-
-
-
   });
-
-
-
 }
 
+
+
+function playTrack(id,name,artistName){
+  
+  const iframe = document.getElementById('iframe');
+  iframe.src = `https://open.spotify.com/embed/track/${id}?utm_source=generator&theme=0`;
+  const model = document.getElementById("model");
+  model.style.display = "block";
+  const modelName = document.getElementById("model-name");
+  modelName.innerHTML = name;
+}
+
+function handleClose(){
+  const model = document.getElementById("model");
+  const iframe = document.getElementById('iframe');
+  model.style.display = "none";
+  iframe.src = "";
+}
 
 async function getPopularTrack() {
     try {
