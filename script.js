@@ -1,7 +1,34 @@
-let accessToken
+let accessToken;
+let searchTimeOut;
 document.addEventListener("DOMContentLoaded", function () {
   initiaApp();
+  setupSearchListener();
 });
+
+function setupSearchListener(){
+  const inputSearch = document.getElementById("input-search");
+  inputSearch.addEventListener("input", (e) =>{
+    const querry = e.target.value.trim();
+    clearTimeout(searchTimeOut);
+
+
+    // debounce
+    searchTimeOut = setTimeout(async () =>{
+      
+      if(querry){
+        const response = await getPopularTrack(querry);
+        resetTrack();
+        displayTrack(response.tracks.items);
+      }
+    },500);
+    
+  });
+}
+
+function resetTrack(){
+  const trackSection = document.getElementById("track-section");
+  trackSection.innerHTML = "";
+}
 
 async function initiaApp() {
     accessToken = await getSpotifyToken();
@@ -36,7 +63,7 @@ function displayTrack(data){
   element.innerHTML = `
       <div class="track-card-container">
         <img src="${imageUrl}" alt="">
-          <h3>${name}</h3>
+          <h3>${truncateText(name,25)}</h3>
           <p>${truncateText(artistName,25)}</p>
       </div>`;
 
@@ -72,14 +99,14 @@ function handleClose(){
   iframe.src = "";
 }
 
-async function getPopularTrack() {
+async function getPopularTrack(querry = "HOYO-MIX") {
     try {
         const response = await axios.get("https://api.spotify.com/v1/search",{
             headers:{
                 Authorization: `Bearer ${accessToken}`
             },
             params:{
-                q:"HOYO-MIX",
+                q: querry,
                 type: "track",
                 limit: "20",
             },
